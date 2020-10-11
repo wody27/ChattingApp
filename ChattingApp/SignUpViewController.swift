@@ -31,13 +31,12 @@ class SignUpViewController: UIViewController {
         
         guard let email = emailTextField.text else { return }
         guard let password = passwordTextField.text else { return }
+        
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
             if let e = error {
                 print(e)
             } else {
-                guard let dvc = self.storyboard?.instantiateViewController(identifier: "ChatViewController") as? ChatViewController else { return }
-                dvc.modalPresentationStyle = .fullScreen
-                self.navigationController?.pushViewController(dvc, animated: true)
+                self.performSegue(withIdentifier: "SignUp", sender: self)
             }
         }
         

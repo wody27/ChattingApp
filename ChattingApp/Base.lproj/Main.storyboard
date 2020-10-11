@@ -127,6 +127,7 @@
                     <connections>
                         <outlet property="emailTextField" destination="Lzy-h8-ilt" id="efV-nI-g2K"/>
                         <outlet property="passwordTextField" destination="coc-aX-a8Z" id="KYW-Jz-L7g"/>
+                        <segue destination="zGM-JP-LQJ" kind="show" identifier="SignUp" id="UI4-d3-GfM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GOe-Q8-dcH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -141,7 +142,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EKI-j2-HeT">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1@2.com" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EKI-j2-HeT">
                                 <rect key="frame" x="20" y="124" width="335" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="TVo-0J-PSv"/>
@@ -149,13 +150,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T15-27-QQF">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123456" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T15-27-QQF">
                                 <rect key="frame" x="20" y="172" width="335" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="BMl-As-d5C"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fU8-ow-Osc">
                                 <rect key="frame" x="20" y="228" width="335" height="60"/>
@@ -189,6 +190,7 @@
                     <connections>
                         <outlet property="emailTextField" destination="EKI-j2-HeT" id="p6Q-n8-HnW"/>
                         <outlet property="passwordTextField" destination="T15-27-QQF" id="Gfg-ul-jlh"/>
+                        <segue destination="zGM-JP-LQJ" kind="show" identifier="Login" id="fW2-Z6-9B9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LTR-9n-6QB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -227,6 +229,9 @@
                                         <state key="normal" image="paperplane" catalog="system">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="sendMessage:" destination="zGM-JP-LQJ" eventType="touchUpInside" id="WMk-Rj-shY"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -239,9 +244,19 @@
                                     <constraint firstItem="UHl-f9-feH" firstAttribute="leading" secondItem="ZGg-xN-g9U" secondAttribute="leading" constant="8" id="snO-By-jfh"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="083-l4-wQS">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="607"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="083-l4-wQS">
+                                <rect key="frame" x="0.0" y="44" width="375" height="563"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ReusableCell" id="441-bL-cSR">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="441-bL-cSR" id="n27-KH-vQj">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="VW3-EN-3iV"/>
@@ -256,13 +271,21 @@
                             <constraint firstItem="083-l4-wQS" firstAttribute="top" secondItem="VW3-EN-3iV" secondAttribute="top" id="va7-vt-EYN"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="PGV-v7-hcJ">
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="Sw8-cN-xSw">
+                            <connections>
+                                <action selector="logout:" destination="zGM-JP-LQJ" id="t8O-mg-WQY"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="messageTableView" destination="083-l4-wQS" id="b0V-ii-Amh"/>
                         <outlet property="messageTextField" destination="UHl-f9-feH" id="ER1-Lc-XTU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UqC-Jp-1ow" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2863.768115942029" y="114.50892857142857"/>
+            <point key="canvasLocation" x="2863.1999999999998" y="113.79310344827587"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rRS-UB-ehX">
@@ -283,6 +306,9 @@
             <point key="canvasLocation" x="137.68115942028987" y="114.50892857142857"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="fW2-Z6-9B9"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="paperplane" catalog="system" width="128" height="118"/>
         <systemColor name="systemBackgroundColor">

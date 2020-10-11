@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReusableCell" rowHeight="105" id="KGk-i7-Jjw" customClass="MessageCell" customModule="ChattingApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="406" height="105"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="406" height="105"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="qVN-Lq-FdY">
+                        <rect key="frame" x="10" y="10" width="386" height="85"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WwF-hX-9oz">
+                                <rect key="frame" x="0.0" y="0.0" width="326" height="81"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cdslcmsdlkcsdamclkasdcmalsdcknasdlckasdnclasdkcnalsdckamsdclaskcmsadlckasdmlcsadncklas" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X3t-Dy-cYw">
+                                        <rect key="frame" x="10" y="10" width="306" height="61"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="X3t-Dy-cYw" firstAttribute="top" secondItem="WwF-hX-9oz" secondAttribute="top" constant="10" id="9J5-XQ-5t5"/>
+                                    <constraint firstAttribute="trailing" secondItem="X3t-Dy-cYw" secondAttribute="trailing" constant="10" id="L4r-bN-sJx"/>
+                                    <constraint firstItem="X3t-Dy-cYw" firstAttribute="leading" secondItem="WwF-hX-9oz" secondAttribute="leading" constant="10" id="j1G-ay-vVq"/>
+                                    <constraint firstAttribute="bottom" secondItem="X3t-Dy-cYw" secondAttribute="bottom" constant="10" id="zcQ-az-jHD"/>
+                                </constraints>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="twW-Fl-vK7">
+                                <rect key="frame" x="346" y="1.5" width="40" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="Lsb-a2-6Ec"/>
+                                    <constraint firstAttribute="height" constant="40" id="tYF-Oj-qTe"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="qVN-Lq-FdY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="6dl-0V-vVt"/>
+                    <constraint firstItem="qVN-Lq-FdY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="G42-LT-pCW"/>
+                    <constraint firstAttribute="bottom" secondItem="qVN-Lq-FdY" secondAttribute="bottom" constant="10" id="aH9-B1-Ae1"/>
+                    <constraint firstAttribute="trailing" secondItem="qVN-Lq-FdY" secondAttribute="trailing" constant="10" id="vVh-vG-vkH"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="label" destination="X3t-Dy-cYw" id="vOR-DF-eOZ"/>
+                <outlet property="messageView" destination="WwF-hX-9oz" id="59Z-mJ-NmX"/>
+                <outlet property="rightImageView" destination="twW-Fl-vK7" id="giN-ch-80R"/>
+            </connections>
+            <point key="canvasLocation" x="-163.768115942029" y="218.63839285714286"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
+    </resources>
+</document>
