@@ -9,21 +9,24 @@ import UIKit
 
 class ChatViewController: UIViewController {
 
+    @IBOutlet weak var messageTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        messageTextField.addInset()
+        messageTextField.layer.cornerRadius = 10
+        messageTextField.layer.borderColor = UIColor.black.cgColor
+        messageTextField.layer.borderWidth = 1
+        
     }
+
+}
+
+extension UITextField {
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func addInset(by inset: CGFloat = 8.0) {
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: inset, height: self.frame.height))
+        self.leftView = paddingView
+        self.leftViewMode = ViewMode.always
     }
-    */
-
 }

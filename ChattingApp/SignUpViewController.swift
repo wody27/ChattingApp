@@ -6,24 +6,41 @@
 //
 
 import UIKit
+import Firebase
 
 class SignUpViewController: UIViewController {
-
+    
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        emailTextField.layer.borderWidth = 1
+        emailTextField.layer.borderColor = UIColor.black.cgColor
+        emailTextField.layer.cornerRadius = 10
+        passwordTextField.layer.borderWidth = 1
+        passwordTextField.layer.borderColor = UIColor.black.cgColor
+        passwordTextField.layer.cornerRadius = 10
+        
+        emailTextField.addInset()
+        passwordTextField.addInset()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func signup(_ sender: UIButton) {
+        
+        guard let email = emailTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
+        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+            if let e = error {
+                print(e)
+            } else {
+                guard let dvc = self.storyboard?.instantiateViewController(identifier: "ChatViewController") as? ChatViewController else { return }
+                dvc.modalPresentationStyle = .fullScreen
+                self.navigationController?.pushViewController(dvc, animated: true)
+            }
+        }
+        
     }
-    */
-
+    
 }
