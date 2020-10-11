@@ -13,6 +13,8 @@ class ChatViewController: UIViewController {
     @IBOutlet weak var messageTextField: UITextField!
     @IBOutlet weak var messageTableView: UITableView!
     
+    let db = Firestore.firestore()
+    
     var messages: [Message] = [
         Message(sender: "1@2.com", body: "Hey!"),
         Message(sender: "a@b.com", body: "Hello!"),
@@ -58,17 +60,12 @@ class ChatViewController: UIViewController {
     
     @IBAction func sendMessage(_ sender: UIButton) {
         
+        if let messageBody = messageTextField.text, let messageSender = Auth.auth().currentUser?.email {
+            
+        }
+        
     }
     
-}
-
-extension UITextField {
-    
-    func addInset(by inset: CGFloat = 8.0) {
-        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: inset, height: self.frame.height))
-        self.leftView = paddingView
-        self.leftViewMode = ViewMode.always
-    }
 }
 
 extension ChatViewController: UITableViewDataSource, UITableViewDelegate {

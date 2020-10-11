@@ -15,6 +15,7 @@
 		D44EE2962531FA0300D78FDF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D44EE2952531FA0300D78FDF /* Assets.xcassets */; };
 		D44EE2992531FA0300D78FDF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D44EE2972531FA0300D78FDF /* LaunchScreen.storyboard */; };
 		D44EE2A2253201F300D78FDF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D44EE2A1253201F300D78FDF /* GoogleService-Info.plist */; };
+		D494DEDC25336D770006D6DC /* UITextField_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D494DEDB25336D770006D6DC /* UITextField_Extension.swift */; };
 		D49670382533150200E0A635 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49670372533150200E0A635 /* Message.swift */; };
 		D496703C253317C100E0A635 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D496703A253317C100E0A635 /* MessageCell.swift */; };
 		D496703D253317C100E0A635 /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D496703B253317C100E0A635 /* MessageCell.xib */; };
@@ -36,6 +37,7 @@
 		D44EE2982531FA0300D78FDF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D44EE29A2531FA0300D78FDF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D44EE2A1253201F300D78FDF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D494DEDB25336D770006D6DC /* UITextField_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField_Extension.swift; sourceTree = "<group>"; };
 		D49670372533150200E0A635 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		D496703A253317C100E0A635 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		D496703B253317C100E0A635 /* MessageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = "<group>"; };
@@ -89,19 +91,28 @@
 				D44EE28C2531FA0200D78FDF /* AppDelegate.swift */,
 				D44EE28E2531FA0200D78FDF /* SceneDelegate.swift */,
 				D44EE2902531FA0200D78FDF /* ViewController.swift */,
-				D44EE2922531FA0200D78FDF /* Main.storyboard */,
-				D496703A253317C100E0A635 /* MessageCell.swift */,
-				D496703B253317C100E0A635 /* MessageCell.xib */,
-				D49670372533150200E0A635 /* Message.swift */,
-				D4F32C0D25326F5300CBF6F0 /* ChatViewController.swift */,
 				D4F32C0725326F3200CBF6F0 /* SignUpViewController.swift */,
 				D4F32C0A25326F3800CBF6F0 /* LoginViewController.swift */,
+				D44EE2922531FA0200D78FDF /* Main.storyboard */,
+				D494DED725336CAD0006D6DC /* Chat */,
 				D44EE2952531FA0300D78FDF /* Assets.xcassets */,
 				D44EE2972531FA0300D78FDF /* LaunchScreen.storyboard */,
 				D44EE29A2531FA0300D78FDF /* Info.plist */,
 				D44EE2A1253201F300D78FDF /* GoogleService-Info.plist */,
+				D494DEDB25336D770006D6DC /* UITextField_Extension.swift */,
 			);
 			path = ChattingApp;
+			sourceTree = "<group>";
+		};
+		D494DED725336CAD0006D6DC /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				D4F32C0D25326F5300CBF6F0 /* ChatViewController.swift */,
+				D496703A253317C100E0A635 /* MessageCell.swift */,
+				D496703B253317C100E0A635 /* MessageCell.xib */,
+				D49670372533150200E0A635 /* Message.swift */,
+			);
+			path = Chat;
 			sourceTree = "<group>";
 		};
 		E34BDD57D93EF92575E89833 /* Frameworks */ = {
@@ -228,6 +239,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D494DEDC25336D770006D6DC /* UITextField_Extension.swift in Sources */,
 				D44EE2912531FA0200D78FDF /* ViewController.swift in Sources */,
 				D496703C253317C100E0A635 /* MessageCell.swift in Sources */,
 				D44EE28D2531FA0200D78FDF /* AppDelegate.swift in Sources */,
