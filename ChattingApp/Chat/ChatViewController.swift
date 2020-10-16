@@ -15,14 +15,10 @@ class ChatViewController: UIViewController {
     
     let db = Firestore.firestore()
     
-    var messages: [Message] = [
-        Message(sender: "1@2.com", body: "Hey!"),
-        Message(sender: "a@b.com", body: "Hello!"),
-        Message(sender: "1@2.com", body: "What's up?")
-    ]
+    var messages: [Message] = []
     
     //MARK: - 생명주기
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -44,8 +40,39 @@ class ChatViewController: UIViewController {
         messageTableView.dataSource = self
         
         messageTableView.register(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
+        
+        loadMessages()
     }
     
+    private func loadMessages() {
+        
+        
+        db.collection("messages")
+            .order(by: "date")
+            .addSnapshotListener { (querySnapshot, error) in
+                
+                self.messages = []
+                
+                if let e = error {
+                    print(e.localizedDescription)
+                } else {
+                    if let snapshotDocuments = querySnapshot?.documents {
+                        snapshotDocuments.forEach { (doc) in
+                            let data = doc.data()
+                            if let sender = data["sender"] as? String, let body = data["body"] as? String {
+                                self.messages.append(Message(sender: sender, body: body))
+                                
+                                
+                                DispatchQueue.main.async {
+                                    self.messageTableView.reloadData()
+                                }
+                                
+                            }
+                        }
+                    }
+                }
+            }
+    }
     @IBAction func logout(_ sender: UIBarButtonItem) {
         
         let firebaseAuth = Auth.auth()
@@ -61,7 +88,17 @@ class ChatViewController: UIViewController {
     @IBAction func sendMessage(_ sender: UIButton) {
         
         if let messageBody = messageTextField.text, let messageSender = Auth.auth().currentUser?.email {
-            
+            db.collection("messages").addDocument(data: [
+                "sender": messageSender,
+                "body": messageBody,
+                "date": Date().timeIntervalSince1970
+            ]) { (error) in
+                if let e = error {
+                    print(e.localizedDescription)
+                } else {
+                    print("Success save data ")
+                }
+            }
         }
         
     }
@@ -77,6 +114,7 @@ extension ChatViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let messageCell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! MessageCell
         
+        messageCell.label.text = messages[indexPath.row].body
         return messageCell
     }
 }
