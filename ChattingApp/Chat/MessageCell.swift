@@ -12,6 +12,8 @@ class MessageCell: UITableViewCell {
     @IBOutlet weak var messageView: UIView!
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var rightImageView: UIImageView!
+    @IBOutlet weak var leftImageView: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         messageView.layer.cornerRadius = messageView.frame.size.height / 5

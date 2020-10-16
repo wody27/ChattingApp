@@ -65,6 +65,7 @@ class ChatViewController: UIViewController {
                                 
                                 DispatchQueue.main.async {
                                     self.messageTableView.reloadData()
+                                    self.messageTableView.scrollToRow(at: IndexPath(row: self.messages.count-1, section: 0), at: .top, animated: false)
                                 }
                                 
                             }
@@ -97,6 +98,10 @@ class ChatViewController: UIViewController {
                     print(e.localizedDescription)
                 } else {
                     print("Success save data ")
+                    
+                    DispatchQueue.main.async {
+                        self.messageTextField.text = ""
+                    }
                 }
             }
         }
@@ -112,9 +117,25 @@ extension ChatViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let message = messages[indexPath.row]
+        
         let messageCell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! MessageCell
         
-        messageCell.label.text = messages[indexPath.row].body
+        
+        if message.sender == Auth.auth().currentUser?.email {
+            messageCell.leftImageView.isHidden = true
+            messageCell.rightImageView.isHidden = false
+            messageCell.messageView.backgroundColor = UIColor.lightGray
+            messageCell.label.textColor = UIColor.black
+        } else {
+            messageCell.leftImageView.isHidden = false
+            messageCell.rightImageView.isHidden = true
+            messageCell.messageView.backgroundColor = UIColor.black
+            messageCell.label.textColor = UIColor.white
+        }
+        
+        messageCell.label.text = message.body
+        
         return messageCell
     }
 }
